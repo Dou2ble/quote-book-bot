@@ -1,10 +1,11 @@
+import os
+from pathlib import Path
+from time import sleep
+
 import hikari as hk
 import lightbulb as lb
-import os
 from dotenv import load_dotenv
 from termcolor import colored
-from pathlib import Path
-import csv
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
@@ -23,6 +24,8 @@ bot = lb.BotApp(
 
 @bot.listen()
 async def ping(ctx: hk.GuildMessageCreateEvent) -> None:
+    sleep(60*60)
+
     with open("quote_book.txt", "w") as f:
         #writer = csv.writer(f, delimiter="|")
         #writer.writerow(CSV_HEADER)
